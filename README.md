@@ -63,3 +63,11 @@ def test_root_deve_retorna_ola_mundo():
 ```shell
 pipx run ignr -p python > .gitignore
 ```
+
+## Usando a CLI do github
+```shell
+# faça login no github
+gh auth login
+# Crie um repositório
+gh repo create
+```
