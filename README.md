@@ -71,3 +71,6 @@ gh auth login
 # Crie um repositório
 gh repo create
 ```
+
+## Pydantic
+Bliblioteca para validação, e ajuda na camada de documentação da API. Ele cria um schema (contrato) de validação para os dados de entrada e saída da API.
