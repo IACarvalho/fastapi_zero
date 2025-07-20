@@ -74,3 +74,44 @@ gh repo create
 
 ## Pydantic
 Bliblioteca para validação, e ajuda na camada de documentação da API. Ele cria um schema (contrato) de validação para os dados de entrada e saída da API.
+
+## SQLalchemy
+É uma espécie de ORM, mas é muito mais poderoso do que um simples ORM.
+
+
+## Criadno migrations
+Instale a biblioteca alembic
+inicie o alembic
+```shell
+alembic init migrations
+```
+configure *env.py* criado na pasta migraitons
+```py
+# direciona para a configuraçāo do database
+config.set_main_option('sqlalchemy.url', Settings().DATABASE_URL)
+# direciona para as classes representantes das tabelas
+target_metadata = table_registry.metadata
+```
+execute o comando para gerar uma migration
+```shell
+alembic revision --autogenerate -m "create user table"
+```
+--autogenerate -> busca nos metadatas e faz as configurações
+-m -> passa uma mensagem descrevendo o que está sendo feito
+
+executando a migration:
+```shell
+alembic upgrade head
+```
+
+para retornar uma versāo:
+```shell
+alembic downgrade -1
+# o -1 sigfica que queremos voltar uma versão
+```
+
+## vizualizando o database sqlite usadno o halerquin
+basta rodar o seguinte comando:
+```shell
+pipx run harlequin database.db
+```
